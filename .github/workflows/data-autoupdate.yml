@@ -20,13 +20,13 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: unitedstates/images
-        path: './unitedstates-images'
+        path: './temp-actions-unitedstates-images'
     - name: Add Congress 450x550 images to repo
       run: |
-        mv ./unitedstates-images/congress/450x550 ./rep-images
-        rm -rf ./unitedstates-images
+        mv ./temp-actions-unitedstates-images/congress/450x550 ./rep-images
+        rm -rf ./temp-actions-unitedstates-images
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Autoupdate districts
+        commit_message: Autoupdate data
         commit_author: GitHub Actions <actions@github.com>
