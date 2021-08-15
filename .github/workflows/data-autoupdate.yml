@@ -1,4 +1,4 @@
-name: Districts Autoupdate
+name: Data Autoupdate
 on:
   workflow_dispatch:
   schedule:
@@ -8,12 +8,24 @@ jobs:
   autoupdate:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout current repository
+      uses: actions/checkout@v2
     - uses: Andrew-Chen-Wang/district-autoupdate@v1.0.1
       with:
         districts-repo: 'Andrew-Chen-Wang/districts'
         tag-branch: 'non-voting-geojson-update'
         path: ${{ github.workspace }}/districts.geojson
+    
+    - name: Checkout unitedstates/images
+      uses: actions/checkout@v2
+      with:
+        repository: unitedstates/images
+        path: './unitedstates-images'
+    - name: Add Congress 450x550 images to repo
+      run: |
+        mv ./unitedstates-images/congress/450x550 ./rep-images
+        rm -rf ./unitedstates-images
+
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Autoupdate districts
