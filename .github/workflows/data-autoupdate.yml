@@ -23,7 +23,7 @@ jobs:
         path: './temp-actions-unitedstates-images'
     - name: Add Congress 450x550 images to repo
       run: |
-        mv ./temp-actions-unitedstates-images/congress/450x550 ./rep-images
+        rsync -avu --delete ./temp-actions-unitedstates-images/congress/450x550 ./rep-images
         rm -rf ./temp-actions-unitedstates-images
 
     - uses: stefanzweifel/git-auto-commit-action@v4
