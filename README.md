@@ -16,6 +16,6 @@ used to update the data is licensed under the Apache 2.0 license
 
 Attribution to some data:
 - [districts.geojson](./districts.geojson) was compiled by
-  [districts-autoupdate](https://github.com/Andrew-Chen-Wang/districts-autoupdate)
+  [district-autoupdate](https://github.com/Andrew-Chen-Wang/district-autoupdate)
   and the original data came from CC0 1.0 Universal licensed
   [unitedstates/districts](https://github.com/unitedstates/districts).
